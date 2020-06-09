@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+const { existsSync, statSync } = require("fs");
+const { execSync } = require("child_process");
+const { basename, extname, dirname, join } = require("path");
+
+const formatSize = (bytes) => {
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return (
+    (bytes / Math.pow(1024, i)).toFixed(2) * 1 +
+    " " +
+    ["B", "KB", "MB", "GB", "TB"][i]
+  );
+};
+
+const exec = (cmd, outputPath) => {
+  if (outputPath && existsSync(outputPath)) {
+    console.log(`Skipping ${outputPath}`);
+  } else {
+    console.log(`Running ${cmd}`);
+    execSync(cmd);
+  }
+  const stats = statSync(outputPath);
+  console.log(`${outputPath}: ${formatSize(stats.size)}`);
+};
+
+const fileName = (filePath) => basename(filePath, extname(filePath));
+const dirNameAndFileName = (filePath) =>
+  join(dirname(filePath), fileName(filePath));
+
+// primitive -i image-w300.jpg -o image-w300-m1-n20.svg -n 20
+const createPrimitive = (imagePath, n = 100, m = 1, paramsInName) => {
+  const nameParams = paramsInName ? `-m${m}-n${n}` : "";
+  const outputPath = `${dirNameAndFileName(imagePath)}${nameParams}.svg`;
+  exec(
+    `primitive -i ${imagePath} -o ${outputPath} -n ${n} -m ${m}`,
+    outputPath
+  );
+};
+
+// sharp -i image.jpg -o image-w1200.jpg resize 1200
+const createResized = (imagePath, width = 150) => {
+  const outputPath = `${dirNameAndFileName(imagePath)}-w${width}${extname(
+    imagePath
+  )}`;
+  exec(`sharp -i ${imagePath} -o ${outputPath} resize ${width}`, outputPath);
+  return outputPath;
+};
+
+// imagemin image-w1200.jpg --plugin.webp.preset=photo > image-w1200-photo.webp
+const createWEBP = (imagePath, imageType = "photo") => {
+  const outputPath = `${dirNameAndFileName(imagePath)}.webp`;
+  exec(
+    `imagemin ${imagePath} --plugin.webp.preset=${imageType} > ${outputPath}`,
+    outputPath
+  );
+  return outputPath;
+};
+
+const inputPath = process.argv[2];
+const imageType = process.argv[3];
+const WIDTHS = [150, 300, 500, 800, 1200, 1600, 2400];
+
+createPrimitive(inputPath, 10, 1), false;
+
+WIDTHS.forEach((width) => {
+  const resizedOutputPath = createResized(inputPath, width);
+  createWEBP(resizedOutputPath, imageType);
+});

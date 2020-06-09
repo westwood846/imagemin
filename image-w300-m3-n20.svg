@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1024" height="768">
+<rect x="0" y="0" width="1024" height="768" fill="#98a8a7" />
+<g transform="scale(4.000000) translate(0.5 0.5)">
+<ellipse fill="#344620" fill-opacity="0.501961" cx="46" cy="96" rx="238" ry="35" />
+<ellipse fill="#ffffff" fill-opacity="0.501961" cx="192" cy="27" rx="202" ry="34" />
+<ellipse fill="#f1f7ff" fill-opacity="0.501961" cx="149" cy="145" rx="86" ry="21" />
+<ellipse fill="#a3a49a" fill-opacity="0.501961" cx="124" cy="97" rx="38" ry="40" />
+<ellipse fill="#ffffff" fill-opacity="0.501961" cx="152" cy="41" rx="83" ry="18" />
+<ellipse fill="#000a01" fill-opacity="0.501961" cx="60" cy="77" rx="18" ry="14" />
+<ellipse fill="#2c4635" fill-opacity="0.501961" cx="222" cy="92" rx="55" ry="18" />
+<ellipse fill="#295664" fill-opacity="0.501961" cx="148" cy="186" rx="30" ry="11" />
+<ellipse fill="#39697c" fill-opacity="0.501961" cx="43" cy="189" rx="22" ry="30" />
+<ellipse fill="#618bb1" fill-opacity="0.501961" cx="45" cy="13" rx="16" ry="19" />
+<ellipse fill="#335144" fill-opacity="0.501961" cx="30" cy="123" rx="47" ry="17" />
+<ellipse fill="#5f85a4" fill-opacity="0.501961" cx="146" cy="0" rx="29" ry="15" />
+<ellipse fill="#bfb770" fill-opacity="0.501961" cx="40" cy="98" rx="155" ry="8" />
+<ellipse fill="#385f5c" fill-opacity="0.501961" cx="22" cy="66" rx="44" ry="17" />
+<ellipse fill="#4c654a" fill-opacity="0.501961" cx="178" cy="98" rx="27" ry="35" />
+<ellipse fill="#e0e6f2" fill-opacity="0.501961" cx="189" cy="155" rx="33" ry="21" />
+<ellipse fill="#c9dae7" fill-opacity="0.501961" cx="17" cy="152" rx="62" ry="7" />
+<ellipse fill="#ecf2ff" fill-opacity="0.501961" cx="202" cy="34" rx="25" ry="32" />
+<ellipse fill="#adbed1" fill-opacity="0.501961" cx="239" cy="29" rx="22" ry="52" />
+<ellipse fill="#cfd9e4" fill-opacity="0.501961" cx="146" cy="135" rx="24" ry="20" />
+</g>
+</svg>
